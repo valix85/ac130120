@@ -6,7 +6,9 @@ public class Persona {
     private int eta;
     private String email;
     private String cf;
+    private double salario;
 
+    // public Persona(){}
     public Persona(String nome, String cognome){
         this.nome=nome;
         this.cognome=cognome;
@@ -66,6 +68,14 @@ public class Persona {
             System.err.println("cf non valido"); // todo exception...
     }
 
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
@@ -74,6 +84,7 @@ public class Persona {
                 ", eta=" + eta +
                 ", email='" + email + '\'' +
                 ", cf='" + cf + '\'' +
+                ", salario=" + salario +
                 '}';
     }
 }//end class

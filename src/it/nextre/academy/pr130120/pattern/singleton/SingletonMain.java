@@ -1,4 +1,4 @@
-package it.nextre.academy.pr130120.pattern;
+package it.nextre.academy.pr130120.pattern.singleton;
 
 import java.util.Arrays;
 
