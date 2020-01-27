@@ -11,7 +11,9 @@ public class ListaSingleton {
     // costruzione pattern singleton
     private static ListaSingleton instance = null;
 
-    private ListaSingleton(){ }
+    private ListaSingleton(){
+        this.elenco = new ListaInt();
+    }
 
     public static synchronized ListaSingleton getInstance(){
         if (instance==null){
@@ -21,7 +23,7 @@ public class ListaSingleton {
     }
 
     // metodi specifici dell'oggetto singleton
-    private ListaInt elenco = new ListaInt();
+    private ListaInt elenco;
     public void addNumber(int number){
         if (!contain(number))
             elenco.add(number);
