@@ -1,5 +1,7 @@
 package it.nextre.academy.pr130120.myutils;
 
+import it.nextre.academy.pr130120.eccezioni.DownloadException;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -89,44 +91,52 @@ public class Operations {
         String input = readRow();
 
         // modo 1
-        for (int i = 0; i < input.length(); i++) {
-            if (i==0 && (input.charAt(i) == '-' || input.charAt(i) == '+') ){
-                continue;
-            }
-            if (!Character.isDigit(input.charAt(i))){
-                System.out.println("input non valido, riprova");
-                return readIntNumber();
-            }
-        }//end for
+        // for (int i = 0; i < input.length(); i++) {
+        //     if (i==0 && (input.charAt(i) == '-' || input.charAt(i) == '+') ){
+        //         continue;
+        //     }
+        //     if (!Character.isDigit(input.charAt(i))){
+        //         System.out.println("input non valido, riprova");
+        //         return readIntNumber();
+        //     }
+        // }//end for
 
         // modo 2
         String ok = "0123456789";
-        for (int i = 0; i < input.length(); i++) {
-            char tmp = input.charAt(i);
-            if (i==0 && (tmp == '+' || tmp=='-')){
-                continue;
-            }
-            if (ok.indexOf(tmp)<0){
-                // il carattere non è presente
-                System.out.println("input non valido, riprova");
-                return readIntNumber();
-            }
-        }//end for
+        // for (int i = 0; i < input.length(); i++) {
+        //     char tmp = input.charAt(i);
+        //     if (i==0 && (tmp == '+' || tmp=='-')){
+        //         continue;
+        //     }
+        //     if (ok.indexOf(tmp)<0){
+        //         // il carattere non è presente
+        //         System.out.println("input non valido, riprova");
+        //         return readIntNumber();
+        //     }
+        // }//end for
 
         // modo 3
-        for (int i = 0; i < input.length(); i++) {
-            char tmp = input.charAt(i);
-            if (i==0 && (tmp == '+' || tmp=='-')){
-                continue;
-            }
-            if (tmp<48 || tmp >57){
-                // il carattere non è valido
-                System.out.println("input non valido, riprova");
-                return readIntNumber();
-            }
-        }//end for
+        // for (int i = 0; i < input.length(); i++) {
+        //     char tmp = input.charAt(i);
+        //     if (i==0 && (tmp == '+' || tmp=='-')){
+        //         continue;
+        //     }
+        //     if (tmp<48 || tmp >57){
+        //         // il carattere non è valido
+        //         System.out.println("input non valido, riprova");
+        //         return readIntNumber();
+        //     }
+        // }//end for
 
-        return Integer.parseInt(input);
+        // modo 4
+        try{
+            return Integer.parseInt(input);
+        }catch(NumberFormatException ex){
+            System.out.println("input non valido, riprova");
+            return readIntNumber();
+        }
+
+        //return Integer.parseInt(input);
     }
 
     public static int readPositiveIntNumber() {

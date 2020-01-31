@@ -1,8 +1,13 @@
 package it.nextre.academy.pr130120;
 
+import it.nextre.academy.pr130120.model.Persona;
 import it.nextre.academy.pr130120.myutils.Operations;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
 
 public class AppMain {
 
@@ -17,15 +22,72 @@ public class AppMain {
         //matrici();
 
 
-        System.out.println("Arguments: "+args.length);
-        for (String tmp : args){
-            System.out.println(tmp);
-        }
+        //System.out.println("Arguments: "+args.length);
+        //for (String tmp : args){
+        //    System.out.println(tmp);
+        //}
 
-        System.out.print("inserisci il tuo nome: ");
-        System.out.println(Operations.readRow());
+        //System.out.print("inserisci il tuo nome: ");
+        //System.out.println(Operations.readRow());
+
+
+        testaListaInt();
 
     }//end main
+
+    private static void testaListaInt() {
+        ListaInt lista = new ListaInt();
+        lista.add(3);
+        assert lista.size()==1 : "Errore add";
+        assert lista.contains(3) : "Errore add";
+
+        lista.add(6);
+        lista.add(9);
+        lista.add(12);
+        lista.add(8);
+
+        assert lista.size()==5 : "Errore size";
+        assert lista.contains(6)==true : "Errore contains";
+        assert lista.contains(7)==false : "Errore contains";
+        assert lista.getIndexByValue(6)==1 : "Errore getIndexByValue";
+        assert lista.getValueByIndex(1)==6 : "Errore getValueByIndex";
+
+        assert lista.indexOf(150)==-1 : "Errore indexOf";
+        assert lista.indexOf(6)==1 : "Errore indexOf";
+        assert lista.indexOf(6)>=0 : "Errore indexOf";
+
+
+        assert lista.remove(0)==false : "Errore remove";
+        assert lista.remove(8)==true : "Errore remove";
+        assert lista.size()==4 : "Errore remove";
+
+
+
+        assert lista.removeByIndex(10)==false : "Errore removeByIndex";
+
+
+
+        assert lista.removeByIndex(1)==true : "Errore removeByIndex";
+        assert lista.size()==3 : "Errore removeByIndex";
+
+
+        lista.clear();
+        assert lista.size()==0 : "Errore clear";
+
+
+        Persona[] ps = new Persona[3];
+        ps[0]=new Persona("valerio","radice");
+        ps[1]=new Persona("giacomo","tondina");
+        ps[2]=new Persona("paolo","ass");
+
+        List<Persona> users = Arrays.asList(ps);
+
+        OptionalInt indexOpt = IntStream.range(0, users.size())
+                .filter(idx -> (users.get(idx).getNome().equals("giacomo")))
+                .findFirst();
+
+
+    }
 
     private static void matrici() {
         // [][][][][]

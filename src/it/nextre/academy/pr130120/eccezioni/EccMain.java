@@ -1,9 +1,9 @@
 package it.nextre.academy.pr130120.eccezioni;
 
+import it.nextre.academy.pr130120.myutils.Operations;
+
 import java.io.File;
 import java.io.IOException;
-import java.rmi.server.ExportException;
-import java.sql.SQLException;
 
 public class EccMain {
 
@@ -42,10 +42,9 @@ public class EccMain {
 
         try {
             Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        }catch (InterruptedException ex){
+            // todo logica di eccezione
         }
-
 
         // uso del throw e throws
 
@@ -63,6 +62,9 @@ public class EccMain {
         }
 
 
+        System.out.println("Inserisci un numero: ");
+        int numero = Operations.readIntNumber();
+        System.out.println(numero);
 
 
         System.out.println("Fine programma");
