@@ -206,4 +206,13 @@ public class Operations {
             }//end for
         }
     }
+
+    public static String formattaDouble(double num, int decimali){
+        if (decimali<0){decimali=2;}
+        return String.format("%."+decimali+"f",num);
+    }
+
+    public static String formattaDouble(double num){
+        return formattaDouble(num,2);
+    }
 }//end class
