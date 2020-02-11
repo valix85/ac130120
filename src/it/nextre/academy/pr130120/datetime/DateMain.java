@@ -74,7 +74,7 @@ public class DateMain {
 //        for(Integer anno : listaChiavi){
 ////            System.out.println(anno + " " + myComple.get(anno));
 ////        }
-        listaChiavi.forEach(k-> System.out.println(k + " " + myComple.get(k)));
+        listaChiavi.forEach(k->System.out.println(k + " " + myComple.get(k)));
 
     }//end main
 
