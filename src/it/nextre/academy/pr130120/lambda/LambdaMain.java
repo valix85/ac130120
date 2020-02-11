@@ -78,7 +78,17 @@ public class LambdaMain {
         cantanti.forEach(System.out::println);
 
 
+        System.out.println(
+                cantanti.stream().reduce("Classifica: ",(out, item)->out+=item+" ")
+        );
 
+        System.out.println(
+                cantanti.stream().collect(Collectors.joining(", "))
+        );
+
+        Map<String, List<String>> ordine = cantanti.stream().collect(Collectors.groupingBy(nome->nome.substring(0,1)));
+
+        System.out.println(ordine);
 
     }//end main
 
