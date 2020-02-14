@@ -101,5 +101,17 @@ public class Generator {
     }
 
 
-
+    /**
+    * Genera password di lunghezza "lunghezza" con lettere maiuscole, minuscole e numeri
+    * */
+    public static String generaPasswordSemplice(int lunghezza) {
+        String stringa="";
+        while (stringa.length()<lunghezza){
+            int random=Operations.getRandomInt(48,123);
+            if ((random>=48&&random<=57)||(random>=65&&random<=90)||(random>=97&&random<=122)){
+                stringa+=((char)random);
+            }
+        }
+        return stringa;
+    }
 }//end class
