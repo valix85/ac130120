@@ -146,6 +146,44 @@ public class MainTelefoni {
         System.out.println(byColorCount);
 
 
+
+
+        System.out.println("---".repeat(10)+"\n");
+        // grouping usa un valore per dividere il gruppo
+        // appartiene o no a un gruppo sulla base di un identificatore del gruppo
+        // es: quanti sono i telefoni di ogni marca
+        Map<String, Long> byMarcaCount =
+                negozio.stream()
+                        .map(t->t.getMarca())
+                        .collect(Collectors.groupingBy(t->t, Collectors.counting()));
+
+        System.out.println(byMarcaCount);
+
+
+
+
+        System.out.println("---".repeat(10)+"\n");
+        // grouping usa un valore per dividere il gruppo
+        // appartiene o no a un gruppo sulla base di un identificatore del gruppo
+        // es: quanti sono i telefoni di marca apple
+        Map<String, Long> byMarcaAppleCount =
+                negozio.stream()
+                        .map(t->t.getMarca())
+                        .collect(Collectors.groupingBy(m->
+                                m.equalsIgnoreCase("apple")?"apple":"altri"
+//                            {
+//                                if (m.equalsIgnoreCase("apple")){
+//                                    return "apple";
+//                                }else{
+//                                    return "altri";
+//                                }
+//                            }
+                            , Collectors.counting()));
+
+        System.out.println(byMarcaAppleCount);
+
+
+
     }//end main
 
 }//end class
