@@ -2,6 +2,7 @@ package it.nextre.academy.pr130120.lambda;
 
 import it.nextre.academy.pr130120.myutils.Operations;
 
+import java.time.Duration;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collector;
@@ -89,6 +90,27 @@ public class LambdaMain {
         Map<String, List<String>> ordine = cantanti.stream().collect(Collectors.groupingBy(nome->nome.substring(0,1)));
 
         System.out.println(ordine);
+
+
+
+        Duration d1 = Duration.ofSeconds(102);
+        Duration d2 = Duration.ofSeconds(103);
+        Duration d3 = Duration.ofSeconds(104);
+        List<Duration> tempiInSecondi = new ArrayList<>();
+        tempiInSecondi.add(d1);
+        tempiInSecondi.add(d2);
+        tempiInSecondi.add(d3);
+
+        long totale = tempiInSecondi.stream()
+                .map(d->d.toSeconds())
+                .reduce(0L, (a,b)->a+b );
+        System.out.println(totale);
+
+        Duration tempoTotale = tempiInSecondi.stream()
+                .reduce(Duration.ZERO, (a,b)->a.plus(b));
+        System.out.println(tempoTotale.toSeconds());
+
+
 
     }//end main
 

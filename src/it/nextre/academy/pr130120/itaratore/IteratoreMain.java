@@ -9,7 +9,6 @@ public class IteratoreMain {
 
     public static void main(String[] args) {
 
-
         Set<String> nomi = new HashSet<>();
         nomi.add(Generator.generaNome());
         nomi.add(Generator.generaNome());
